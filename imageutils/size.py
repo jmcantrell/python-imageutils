@@ -23,9 +23,9 @@ def aspect_ratio(size): #{{{1
 def aspect_ratio_approximate(size): #{{{1
     """Gets a decimal approximation of an aspect ratio.
     >>> aspect_ratio_approximate((640, 480))
-    Decimal("1.33")
+    Decimal('1.33')
     >>> aspect_ratio_approximate((4, 3))
-    Decimal("1.33")
+    Decimal('1.33')
     """
     return Decimal('%.2f' % (float(size[0])/size[1]))
 
@@ -58,6 +58,34 @@ def scale_size(size, sizer): #{{{1
     j = i * -1 + 1
     size_new[i] = (size_new[j] * size[i]) / size[j]
     return tuple(size_new)
+
+def scale(size_bg, size_fg): #{{{1
+    """Scales one size to fit inside another.
+    >>> scale((400, 400), (100, 100))
+    (400, 400)
+    >>> scale((100, 100), (400, 400))
+    (100, 100)
+    >>> scale((600, 400), (500, 500))
+    (400, 400)
+    """
+    ar_bg = aspect_ratio(size_bg)
+    ar_fg = aspect_ratio(size_fg)
+    if ar_bg < ar_fg:
+        return scale_size(size_fg, (size_bg[0], None))
+    if ar_bg > ar_fg:
+        return scale_size(size_fg, (None, size_bg[1]))
+    return size_bg
+
+def center(size_bg, size_fg): #{{{1
+    """Get the centering coordinates for fg against bg.
+    >>> center((800, 600), (640, 480))
+    (80, 60)
+    >>> center((640, 480), (800, 600))
+    (-80, -60)
+    """
+    cw = center_edge(size_bg[0], size_fg[0])
+    ch = center_edge(size_bg[1], size_fg[1])
+    return cw, ch
 
 def center_edge(bg_edge, fg_edge): #{{{1
     """Given the two lengths, this will give the offset needed to center the

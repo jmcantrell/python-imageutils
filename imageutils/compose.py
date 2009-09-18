@@ -2,12 +2,12 @@ from . import size
 
 def paste_scale(bg, fg): #{{{1
     """Scales maximally and centers the foreground image onto the background."""
-    fg_ar = size.aspect_ratio(fg.size)
-    bg_ar = size.aspect_ratio(bg.size)
-    if fg_ar == bg_ar:
+    ar_fg = size.aspect_ratio(fg.size)
+    ar_bg = size.aspect_ratio(bg.size)
+    if ar_fg == ar_bg:
         sz = bg.size
         box = None
-    elif fg_ar < bg_ar:
+    elif ar_fg < ar_bg:
         sz = size.scale_size(fg.size, (None, bg.size[1]))
         c = size.center_edge(bg.size[0], sz[0])
         box = (c, 0, c + sz[0], bg.size[1])
