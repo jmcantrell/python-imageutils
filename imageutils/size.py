@@ -68,13 +68,25 @@ def scale(size_bg, size_fg): #{{{1
     >>> scale((600, 400), (500, 500))
     (400, 400)
     """
-    ar_bg = aspect_ratio(size_bg)
-    ar_fg = aspect_ratio(size_fg)
-    if ar_bg < ar_fg:
-        return scale_size(size_fg, (size_bg[0], None))
-    if ar_bg > ar_fg:
-        return scale_size(size_fg, (None, size_bg[1]))
-    return size_bg
+    size_fg = scale_size(size_fg, (size_bg[0], None))
+    size_fg = scale_size(size_fg, (None, size_bg[1]))
+    return size_fg
+
+def scale_down(size_bg, size_fg): #{{{1
+    """Scales one size to fit inside another.
+    Will only scale down, never up.
+    """
+    if size_fg[0] > size_bg[0] or size_fg[1] > size_bg[1]:
+        return scale(size_bg, size_fg)
+    return size_fg
+
+def scale_up(size_bg, size_fg): #{{{1
+    """Scales one size to fit inside another.
+    Will only scale up, never down.
+    """
+    if size_fg[0] < size_bg[0] or size_fg[1] < size_bg[1]:
+        return scale(size_bg, size_fg)
+    return size_fg
 
 def center(size_bg, size_fg): #{{{1
     """Get the centering coordinates for fg against bg.
