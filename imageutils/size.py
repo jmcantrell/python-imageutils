@@ -75,6 +75,10 @@ def scale(size_bg, size_fg): #{{{1
 def scale_down(size_bg, size_fg): #{{{1
     """Scales one size to fit inside another.
     Will only scale down, never up.
+    >>> scale_down((100, 100), (400, 400))
+    (100, 100)
+    >>> scale_down((400, 400), (100, 100))
+    (100, 100)
     """
     if size_fg[0] > size_bg[0] or size_fg[1] > size_bg[1]:
         return scale(size_bg, size_fg)
@@ -83,6 +87,10 @@ def scale_down(size_bg, size_fg): #{{{1
 def scale_up(size_bg, size_fg): #{{{1
     """Scales one size to fit inside another.
     Will only scale up, never down.
+    >>> scale_up((100, 100), (400, 400))
+    (400, 400)
+    >>> scale_up((400, 400), (100, 100))
+    (400, 400)
     """
     if size_fg[0] < size_bg[0] or size_fg[1] < size_bg[1]:
         return scale(size_bg, size_fg)

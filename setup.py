@@ -5,7 +5,7 @@ from glob import glob
 
 setup(
         name='ImageUtils',
-        version='0.2.2',
+        version='0.2.3',
         description='Various small utilities for working with images.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
