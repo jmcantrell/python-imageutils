@@ -10,7 +10,7 @@ setup(
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
         classifiers=[
-            'Development Status :: 3 - Alpha',
+            'Development Status :: 4 - Beta',
             'Intended Audience :: Developers',
             'License :: OSI Approved :: GNU General Public License (GPL)',
             'Natural Language :: English',
