@@ -1,5 +1,4 @@
 import os
-from PIL import Image
 
 __all__ = ['color', 'size', 'compose']
 

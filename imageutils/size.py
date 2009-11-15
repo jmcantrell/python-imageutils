@@ -36,7 +36,7 @@ def same_aspect_ratio(size1, size2): #{{{1
     >>> same_aspect_ratio((1280, 1024), (4, 3))
     False
     """
-    return aspect_ratio_approximate(size1) == aspect_ratio_approximate(size2)
+    return aspect_ratio(size1) == aspect_ratio(size2)
 
 def safe_resize(image, sizer): #{{{1
     """Resizes an image only if it's needed."""
@@ -46,7 +46,7 @@ def safe_resize(image, sizer): #{{{1
 
 def scale_size(size, sizer): #{{{1
     """Scales a size tuple based on a sizer tuple.
-    A "sizer" is just a size tuple that specifies only width or height.
+    A sizer is just a size tuple that specifies only width or height.
     >>> scale_size((640, 480), (800, None))
     (800, 600)
     >>> scale_size((640, 480), (None, 3))
@@ -108,8 +108,7 @@ def center(size_bg, size_fg): #{{{1
     return cw, ch
 
 def center_edge(bg_edge, fg_edge): #{{{1
-    """Given the two lengths, this will give the offset needed to center the
-    second relative to the first.
+    """Get the offset needed to center fg relative to bg.
     >>> center_edge(100, 50)
     25
     """
