@@ -6,8 +6,7 @@ def gcf(x, y): #{{{1
     >>> gcf(640, 480)
     160
     """
-    while y:
-        x, y = y, x % y
+    while y: x, y = y, x % y
     return x
 
 def aspect_ratio(size): #{{{1
