@@ -35,7 +35,7 @@ def same_aspect_ratio(size1, size2): #{{{1
     >>> same_aspect_ratio((1280, 1024), (4, 3))
     False
     """
-    return aspect_ratio(size1) == aspect_ratio(size2)
+    return aspect_ratio_approximate(size1) == aspect_ratio_approximate(size2)
 
 def safe_resize(image, sizer): #{{{1
     """Resizes an image only if it's needed."""
