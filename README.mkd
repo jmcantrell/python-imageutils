@@ -1,3 +1,6 @@
+Installation
+------------
+
 If you have setuptools installed, you can install ImageUtils with:
 
     easy_install ImageUtils
