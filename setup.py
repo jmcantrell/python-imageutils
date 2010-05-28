@@ -18,4 +18,7 @@ setup(
         packages=[
             'imageutils',
             ],
+        install_requires=[
+            'PIL',
+            ],
         )
