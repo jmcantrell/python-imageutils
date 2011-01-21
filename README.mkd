@@ -1,9 +1,9 @@
 Installation
 ------------
 
-If you have setuptools installed, you can install ImageUtils with:
+You should install ImageUtils with pip:
 
-    easy_install ImageUtils
+    pip install ImageUtils
 
 Otherwise, you'll have to download the package and run:
 
