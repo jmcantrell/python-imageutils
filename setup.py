@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
         name='ImageUtils',
-        version='0.3.3',
+        version='0.3.4',
         description='Various utilities for working with images.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
