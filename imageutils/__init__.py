@@ -25,7 +25,8 @@ def get_exif(filename):
     ret = {}
     i = Image.open(filename)
     info = i._getexif()
-    for tag, value in info.items():
-        decoded = TAGS.get(tag, tag)
-        ret[decoded] = value
+    if info:
+        for tag, value in info.items():
+            decoded = TAGS.get(tag, tag)
+            ret[decoded] = value
     return ret
